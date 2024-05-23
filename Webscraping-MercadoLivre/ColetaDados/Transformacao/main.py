@@ -1,5 +1,6 @@
 import pandas as pd
 from datetime import datetime 
+import sqlite3
 
 ### VAMOS PEGAR O ARQUIVO JSON
 
@@ -21,3 +22,13 @@ df['avaliacao'] = df['avaliacao'].fillna(0).astype(float)
 df['Quantidade de avaliação'] = df['Quantidade de avaliação'].str.replace('(','').str.replace(')','').fillna(0)
 df['Quantidade de avaliação'] = df['Quantidade de avaliação'].astype(int)
 print(df) 
+
+# ### CRIANDO UMA CONEXAO COM SQLITE
+# conexao = sqlite3.connect('../data/quotes.db')
+
+# ### SALVANDO DATAFRAME NO BANCO DE DADOS SQLITE
+# df.to_sql('mercadoLivre_iphone_itens',conexao, if_exists=='replace', index=False)
+
+# conexao.close()
+
+
